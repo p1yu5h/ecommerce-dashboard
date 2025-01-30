@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { fetchProductById, Product } from "../services/product.service";
-import Loader from "./common/Loader";
 
 interface ProductDetailsModalProps {
   productId: number | undefined;
@@ -34,7 +33,7 @@ const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({ productId, is
     fetchData();
   }, [productId, isOpen]);
 
-  if (!isOpen || !productDetails) return <div>Loading...</div>;
+  if (!isOpen || !productDetails || loading) return <div>Loading...</div>;
 
   if (error) {
     return <div>{error}</div>;

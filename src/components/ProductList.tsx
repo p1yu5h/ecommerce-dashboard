@@ -20,7 +20,7 @@ const ProductList = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>();
   const [pagination, setPagination] = useState({ page: 0, limit: 8 });
-  const [totalProducts, setTotalProducts] = useState<Number | null>(null);
+  const [totalProducts, setTotalProducts] = useState<number | null>(null);
 
   const observer = useRef<IntersectionObserver | null>(null);
   const lastProductElementRef = useRef<HTMLDivElement | null>(null);

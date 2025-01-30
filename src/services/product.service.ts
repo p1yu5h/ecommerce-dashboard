@@ -27,11 +27,6 @@ interface SortParams {
   order: string | "asc" | "desc";
 }
 
-interface FilterParams {
-  search?: string;
-  category?: string;
-}
-
 interface ProductResponse {
   products: Product[];
   total: number;
@@ -55,7 +50,11 @@ const fetchCategories = async (): Promise<Category[]> => {
   }
 };
 
-const fetchProducts = async (pagination: PaginationParams, sort: SortParams, category): Promise<ProductResponse> => {
+const fetchProducts = async (
+  pagination: PaginationParams,
+  sort: SortParams,
+  category: string
+): Promise<ProductResponse> => {
   try {
     const url = !!category ? `/products/category/${category}` : "/products";
 
