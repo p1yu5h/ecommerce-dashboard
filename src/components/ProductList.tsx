@@ -157,7 +157,7 @@ const ProductList = () => {
       )}
 
       {/* This is the target for the Intersection Observer */}
-      <div ref={lastProductElementRef} />
+      <div ref={lastProductElementRef} className="h-4 w-4" />
 
       {loading && <Loader />}
     </div>
