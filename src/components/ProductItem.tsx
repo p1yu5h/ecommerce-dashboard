@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 const ProductDetailsModal = React.lazy(() => import("./ProductDetailsModal"));
 
 interface Product {
@@ -41,7 +41,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       </div>
 
       {/* Modal Component */}
-      <ProductDetailsModal productId={product.id} isOpen={isModalOpen} onClose={closeModal} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductDetailsModal productId={product.id} isOpen={isModalOpen} onClose={closeModal} />
+      </Suspense>
     </div>
   );
 };
