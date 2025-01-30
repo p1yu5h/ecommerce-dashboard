@@ -86,9 +86,7 @@ const ProductList = () => {
       }
     };
 
-    observer.current = new IntersectionObserver(handleIntersect, {
-      rootMargin: "100px",
-    });
+    observer.current = new IntersectionObserver(handleIntersect, { root: null, rootMargin: "0px", threshold: 0.1 });
 
     observer.current.observe(currentElement);
 
@@ -159,7 +157,7 @@ const ProductList = () => {
       )}
 
       {/* This is the target for the Intersection Observer */}
-      <div ref={lastProductElementRef}></div>
+      <div ref={lastProductElementRef} />
 
       {loading && <Loader />}
     </div>
